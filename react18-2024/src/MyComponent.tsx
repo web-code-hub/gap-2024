@@ -1,11 +1,20 @@
-import { useId } from 'react';
+import { log } from 'console';
+import React, { useEffect, useState } from 'react';
+
 const MyComponent = () => {
-    const id = useId();
-    return (
-        <div style={{ textAlign: 'center' }}>
-            <h1>2024-01-01</h1>
-            <p>唯一Id: {id}</p>
-        </div>
-    )
-}
+  const [date, setDate] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:3001/date')
+    .then(res=>res.json())
+    .then(data=>setDate(data.date))
+  }, []);
+
+  return (
+    <div>
+      <p>Current Date: {date}</p>
+    </div>
+  );
+};
+
 export default MyComponent;
