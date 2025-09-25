@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  api:
+    build: ./node-backend
+    ports: ["3001:3001"]
+  web:
+    build: ./react18-2024
+    ports: ["3000:3000"]
+    depends_on: [api]

@@ -1,4 +1,3 @@
-import { log } from 'console';
 import React, { useEffect, useState } from 'react';
 
 const MyComponent = () => {
